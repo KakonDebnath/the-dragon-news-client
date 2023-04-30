@@ -5,7 +5,7 @@ import { FaUser, FaUserCircle } from "react-icons/fa";
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut, setLoading } = useContext(AuthContext);
 
     const navbar = [
         {
@@ -25,6 +25,15 @@ const Navbar = () => {
         }
     ]
 
+    // handle log out button
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(err =>  console.log(err.message));
+            setLoading(false);
+
+    }
+
     return (
         <Row className='align-items-center mt-4'>
             <Col></Col>
@@ -43,7 +52,10 @@ const Navbar = () => {
             </Col>
             <Col>
                 {user && <FaUserCircle className='display-6' />}
-                {user ? <Button variant='secondary' className='rounded-0 ms-3 px-4'><Link to="/" className='text-decoration-none text-white'>Sign Out</Link></Button> : <Button variant='secondary' className='rounded-0 ms-3 px-4'><Link to="/login" className='text-decoration-none text-white'>Login</Link></Button>}
+                {
+                    user ? <Button onClick={handleLogOut} variant='secondary' className='rounded-0 ms-3 px-4'>Sign Out</Button>
+                        : <Button variant='secondary' className='rounded-0 ms-3 px-4'><Link to="/login" className='text-decoration-none text-white'>Login</Link></Button>
+                }
 
             </Col>
         </Row>
