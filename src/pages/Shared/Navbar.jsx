@@ -1,9 +1,11 @@
-import React from 'react';
-import { Row, Col } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Row, Col, Button } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 import { FaUser, FaUserCircle } from "react-icons/fa";
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext);
 
     const navbar = [
         {
@@ -40,7 +42,9 @@ const Navbar = () => {
                 </div>
             </Col>
             <Col>
-                <FaUserCircle className='display-6'/>
+                {user && <FaUserCircle className='display-6' />}
+                {user ? <Button variant='secondary' className='rounded-0 ms-3 px-4'><Link to="/" className='text-decoration-none text-white'>Sign Out</Link></Button> : <Button variant='secondary' className='rounded-0 ms-3 px-4'><Link to="/login" className='text-decoration-none text-white'>Login</Link></Button>}
+
             </Col>
         </Row>
     );

@@ -6,7 +6,6 @@ const Main = () => {
     return (
         <div className='container'>
             <Outlet></Outlet>
-            <Footer></Footer>
         </div>
     );
 };

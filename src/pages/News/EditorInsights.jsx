@@ -1,25 +1,51 @@
 import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
+import img1 from "../../assets/1.png"
+import img2 from "../../assets/2.png"
+import img3 from "../../assets/3.png"
+import { FaRegCalendar } from 'react-icons/fa';
+import moment from 'moment';
 
 const EditorInsights = () => {
     return (
         <div>
-            <Row xs={1} md={2} className="g-4">
-                {Array.from({ length: 4 }).map((_, idx) => (
-                    <Col key={idx}>
-                        <Card>
-                            <Card.Img variant="top" src="holder.js/100px160" />
-                            <Card.Body>
-                                <Card.Title>Card title</Card.Title>
-                                <Card.Text>
-                                    This is a longer card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit
-                                    longer.
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
+            <Row md={3} className="g-4 mt-3">
+                <Col>
+                    <Card>
+                        <Card.Img variant="top" src={img1} />
+                        <Card.Body>
+                            <Card.Title>21 The Most Stylish Wedding Guest Dresses For Spring</Card.Title>
+                            <div className='d-flex align-items-center justify-content-between text-secondary'>
+                                <span><FaRegCalendar /></span>
+                                <p className='m-0'>{moment().format('MMMM DD YYYY')}</p>
+                            </div>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card>
+                        <Card.Img variant="top" src={img2} />
+                        <Card.Body>
+                            <Card.Title>21 The Most Stylish Wedding Guest Dresses For Spring</Card.Title>
+                            <div className='d-flex align-items-center justify-content-between text-secondary'>
+                                <span><FaRegCalendar /></span>
+                                <p className='m-0'>{moment().format('MMMM DD YYYY')}</p>
+                            </div>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card>
+                        <Card.Img variant="top" src={img3} />
+                        <Card.Body>
+                            <Card.Title>21 The Most Stylish Wedding Guest Dresses For Spring</Card.Title>
+                            <div className='d-flex align-items-center justify-content-between text-secondary'>
+                                <span><FaRegCalendar /></span>
+                                <p className='m-0'>{moment().format('MMMM DD YYYY')}</p>
+                            </div>
+                        </Card.Body>
+                    </Card>
+                </Col>
             </Row>
         </div>
     );
