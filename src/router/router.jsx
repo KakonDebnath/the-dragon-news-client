@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
-import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Career from "../pages/Career/Career";
 import Category from "../pages/Category/Category";
@@ -20,7 +19,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Category />,
-        loader: () => fetch("http://localhost:5000/news")
+        loader: () => fetch("https://the-news-dragon-server-kakondebnath.vercel.app/news")
       },
       { path: "/about", element: <About /> },
       { path: "/career", element: <Career /> },
@@ -36,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: ":id",
         element: <Category />,
-        loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
+        loader: ({ params }) => fetch(`https://the-news-dragon-server-kakondebnath.vercel.app/categories/${params.id}`)
       }
     ]
   },
@@ -47,7 +46,7 @@ const router = createBrowserRouter([
       {
         path: ":id",
         element: <PrivateRoute><News /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
+        loader: ({ params }) => fetch(`https://the-news-dragon-server-kakondebnath.vercel.app/${params.id}`)
       }
     ]
   }

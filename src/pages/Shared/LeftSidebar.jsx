@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const LeftSidebar = () => {
     const [categoryList, setCategoryList] = useState([]);
     useEffect(() => { 
-        fetch('http://localhost:5000/categories')
+        fetch('https://the-news-dragon-server-kakondebnath.vercel.app/categories')
           .then(res => res.json())
           .then(data => setCategoryList(data))
           .catch(err => console.log(err))
