@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../Shared/Navbar';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,11 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
     const {createUser} = useContext(AuthContext);
+    const [isAccepted, setIsAccepted] = useState(false);
+
+    const handleAcceptCheckbox = (e)=>{
+        setIsAccepted(e.target.checked);
+    }
 
     const handleRegister = (e)=>{
         e.preventDefault();
@@ -57,10 +62,13 @@ const Register = () => {
                         <Form.Control type="password" name="password" placeholder="Password" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Accept Trams & conditions" />
+                        <Form.Check
+                        onClick={handleAcceptCheckbox} 
+                        type="checkbox" 
+                        label={<>Accept <Link to="/trams">Trams & conditions</Link></>  }/>
                     </Form.Group>
-                    <Button variant="danger" type="submit" className='w-100'>
-                        Submit
+                    <Button variant="danger" type="submit" className='w-100' disabled={!isAccepted}>
+                        Register
                     </Button>
                 </Form>
                 <p className='text-center mt-4'> Have An Account ? <Link to="/login" className='text-decoration-none' style={{ color: "#FF8C47" }}>Login</Link></p>

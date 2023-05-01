@@ -10,6 +10,7 @@ import Login from "../pages/Login/Login";
 import LoginPage from "../pages/Login/LoginPage";
 import Register from "../pages/Login/Register";
 import PrivateRoute from "./PrivateRoute";
+import Trams_condition from "../pages/Shared/Trams_condition";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "/career", element: <Career /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
+      { path: "/trams", element: <Trams_condition /> },
     ]
   },
   {
